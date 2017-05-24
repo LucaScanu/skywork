@@ -160,12 +160,43 @@ window.onload = function(){
     console.log("draw and animate frame three.");
 
     // refer to the creative brief, frame 3 for guidance.
+
     button = new createjs.Bitmap( loader.getResult( "button" ));
     button.scaleX = 0.8;
     button.scaleY = 0.8;
-    button.x = 90;
-    button.y = 120;
+    button.x = 100;
+    button.y = 140;
     stage.addChild( button );
+
+    var text = new createjs.Text("Choose your reward", "25px SkyText-Regular",
+    "#9F55E5");
+    text.x = 50;
+    text.y = 10;
+    text.alpha = 0;
+    stage.addChild( text );
+    createjs.Tween.get( text ).to( {alpha:1}, 1500 );
+
+    var text1 = new createjs.Text("when you switch to 12 months", "15px SkyText-Regular", "#0000ff");
+    text1.x = 58;
+    text1.y = 40;
+    text1.alpha = 0;
+    stage.addChild( text1 );
+    createjs.Tween.get( text1 ).to( {alpha:1}, 3000);
+
+    var text2 = new createjs.Text("free Sky Broadband Unlimited", "15px SkyText-Regular", "#0000ff");
+    text2.x = 58;
+    text2.y = 60;
+    text2.alpha = 0;
+    stage.addChild( text2 );
+    createjs.Tween.get( text2 ).to( {alpha:1}, 3500 );
+
+    var text3 = new createjs.Text("Limited time offer", "15px SkyText-Regular", "#9F55E5");
+    text3.x = 90;
+    text3.y = 90;
+    text3.alpha = 0;
+    stage.addChild( text3 );
+    createjs.Tween.get( text3 ).to( {alpha:1}, 4500 );
+
   }
 
 };
