@@ -33,6 +33,7 @@ window.onload = function(){
     {id: "background", src:"images/background.png"},
     {id: "logo", src:"images/sky-logo.png"},
     {id: "products",  src:"images/products.png"},
+    {id: "stamp", src:"images/Sky_stamp.png"}
   ]);
 
   function handleAllImagesLoaded() {
@@ -76,61 +77,72 @@ window.onload = function(){
     // refer to the creative brief, frame 1 for guidance.
 
     // function drawText() {
-      var text = new createjs.Text("Choose your reward", "25px SkyText-Regular", "#000");
-      text.x = 50;
-      text.y = 10;
-      text.alpha = 0;
-      stage.addChild( text );
-      createjs.Tween.get( text ).to( {alpha:1}, 1500 );
+    var text = new createjs.Text("Choose your reward", "25px SkyText-Regular", "#000");
+    text.x = 50;
+    text.y = 10;
+    text.alpha = 0;
+    stage.addChild( text );
+    createjs.Tween.get( text ).to( {alpha:1}, 1500 );
 
-      var text1 = new createjs.Text("when you switch to 12 months", "15px SkyText-Regular", "#0000ff");
-      text1.x = 58;
-      text1.y = 40;
-      text1.alpha = 0;
-      stage.addChild( text1 );
-      createjs.Tween.get( text1 ).to( {alpha:1}, 3000);
+    var text1 = new createjs.Text("when you switch to 12 months", "15px SkyText-Regular", "#0000ff");
+    text1.x = 58;
+    text1.y = 40;
+    text1.alpha = 0;
+    stage.addChild( text1 );
+    createjs.Tween.get( text1 ).to( {alpha:1}, 3000);
 
-      var text2 = new createjs.Text("free Sky Broadband Unlimited", "15px SkyText-Regular", "#0000ff");
-      text2.x = 58;
-      text2.y = 60;
-      text2.alpha = 0;
-      stage.addChild( text2 );
-      createjs.Tween.get( text2 ).to( {alpha:1}, 3500 );
+    var text2 = new createjs.Text("free Sky Broadband Unlimited", "15px SkyText-Regular", "#0000ff");
+    text2.x = 58;
+    text2.y = 60;
+    text2.alpha = 0;
+    stage.addChild( text2 );
+    createjs.Tween.get( text2 ).to( {alpha:1}, 3500 );
 
-      setTimeout(eraseBackground, 4000);
+    setTimeout(eraseBackground, 4000);
 
-      function eraseBackground() {
-        createjs.Tween.get( products ).to( {alpha:0}, 500 );
-        createjs.Tween.get( text ).to( {alpha:0}, 100 );
-        createjs.Tween.get( text1 ).to( {alpha:0}, 500 );
-        createjs.Tween.get( text2 ).to( {alpha:0}, 500 );
-      }
+    function eraseBackground() {
+      createjs.Tween.get( products ).to( {alpha:0}, 500 );
+      createjs.Tween.get( text ).to( {alpha:0}, 100 );
+      createjs.Tween.get( text1 ).to( {alpha:0}, 500 );
+      createjs.Tween.get( text2 ).to( {alpha:0}, 500 );
+    }
     // }
 
-      // after a timeout and the animations have completed, draw frame 2.
-      setTimeout(frame2, 5000);
+    // after a timeout and the animations have completed, draw frame 2.
+    setTimeout(frame2, 5000);
   }
 
-    function frame2() {
-      console.log("draw and animate frame two.");
+  function frame2() {
+    console.log("draw and animate frame two.");
 
-      // refer to the creative brief, frame 2 for guidance.
-      var text = new createjs.Text("Choose your reward", "25px SkyText-Regular", "#000");
-      text.x = 50;
-      text.y = 10;
-      text.alpha = 0;
-      stage.addChild( text );
-      createjs.Tween.get( text ).to( {alpha:1}, 3000 );
+    // refer to the creative brief, frame 2 for guidance.
+    // fade in text with gradient
+    var text = new createjs.Text("Choose your reward", "25px SkyText-Regular", "#000");
+    text.x = 50;
+    text.y = 10;
+    text.alpha = 0;
+    stage.addChild( text );
+    createjs.Tween.get( text ).to( {alpha:1}, 3000 );
+
+    //animated gradient sky stamp
+    stamp = new createjs.Bitmap( loader.getResult( "stamp" ));
+    stamp.x = 70;
+    stamp.y = -20;
+    stamp.alpha = 0;
+    createjs.Tween.get( stamp )
+      .to( {alpha:1, y: 50}, 1000, createjs.Ease.bounceOut);
+    stage.addChild( stamp );
 
 
-      // after a timeout and the animations have completed, draw frame 3.
-      setTimeout(frame3, 3000);
-    }
 
-    function frame3() {
-      console.log("draw and animate frame three.");
+    // after a timeout and the animations have completed, draw frame 3.
+    setTimeout(frame3, 3000);
+  }
 
-      // refer to the creative brief, frame 3 for guidance.
-    }
+  function frame3() {
+    console.log("draw and animate frame three.");
 
-  };
+    // refer to the creative brief, frame 3 for guidance.
+  }
+
+};
