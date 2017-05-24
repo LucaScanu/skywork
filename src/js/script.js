@@ -6,7 +6,9 @@ window.onload = function(){
   var background;
   var logo;
   var products;
+  var rewards;
   var stamp;
+  var button;
 
   // store a reference to the canvas which we will draw on.
   var stage = new createjs.Stage("stage");
@@ -33,7 +35,8 @@ window.onload = function(){
     {id: "background", src:"images/background.png"},
     {id: "logo", src:"images/sky-logo.png"},
     {id: "products",  src:"images/products.png"},
-    {id: "stamp", src:"images/Sky_stamp.png"}
+    {id: "stamp", src:"images/Sky_stamp.png"},
+    {id: "button", src:"images/button.png"}
   ]);
 
   function handleAllImagesLoaded() {
@@ -75,11 +78,11 @@ window.onload = function(){
 
   function frame1() {
     console.log("draw and animate frame one.");
-    // setTimeout(drawText, 1500);
+
     // refer to the creative brief, frame 1 for guidance.
 
-    // function drawText() {
-    var text = new createjs.Text("Choose your reward", "25px SkyText-Regular", "#000");
+    var text = new createjs.Text("Choose your reward", "25px SkyText-Regular",
+    "#9F55E5");
     text.x = 50;
     text.y = 10;
     text.alpha = 0;
@@ -119,12 +122,12 @@ window.onload = function(){
 
     // refer to the creative brief, frame 2 for guidance.
     // fade in text with gradient
-    var text3 = new createjs.Text("Choose your reward", "25px SkyText-Regular", "#000");
-    text3.x = 50;
-    text3.y = 10;
-    text3.alpha = 0;
-    stage.addChild( text3 );
-    createjs.Tween.get( text3 ).to( {alpha:1}, 3000 );
+    var text = new createjs.Text("Choose your reward", "25px SkyText-Regular", "#9F55E5");
+    text.x = 50;
+    text.y = 10;
+    text.alpha = 0;
+    stage.addChild( text );
+    createjs.Tween.get( text ).to( {alpha:1}, 3000 );
 
     setTimeout(bouncingStamp, 1000);
 
@@ -142,10 +145,9 @@ window.onload = function(){
     setTimeout(clearBackground, 2000);
 
     function clearBackground() {
-      createjs.Tween.get( stamp ).to( {alpha:0}, 1000 );
-      createjs.Tween.get( text3 ).to( {alpha:0}, 1000 );
-      console.log(text3);
 
+      createjs.Tween.get( text ).to( {alpha:0}, 500 );
+      createjs.Tween.get( stamp ).to( {alpha:0}, 500 );
     }
 
 
@@ -158,6 +160,12 @@ window.onload = function(){
     console.log("draw and animate frame three.");
 
     // refer to the creative brief, frame 3 for guidance.
+    button = new createjs.Bitmap( loader.getResult( "button" ));
+    button.scaleX = 0.8;
+    button.scaleY = 0.8;
+    button.x = 90;
+    button.y = 120;
+    stage.addChild( button );
   }
 
 };
