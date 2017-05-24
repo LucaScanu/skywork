@@ -71,6 +71,8 @@ window.onload = function(){
     setTimeout(frame1, 100);
   }
 
+
+
   function frame1() {
     console.log("draw and animate frame one.");
     // setTimeout(drawText, 1500);
@@ -102,7 +104,7 @@ window.onload = function(){
 
     function eraseBackground() {
       createjs.Tween.get( products ).to( {alpha:0}, 500 );
-      createjs.Tween.get( text ).to( {alpha:0}, 100 );
+      createjs.Tween.get( text ).to( {alpha:0}, 500 );
       createjs.Tween.get( text1 ).to( {alpha:0}, 500 );
       createjs.Tween.get( text2 ).to( {alpha:0}, 500 );
     }
@@ -117,21 +119,34 @@ window.onload = function(){
 
     // refer to the creative brief, frame 2 for guidance.
     // fade in text with gradient
-    var text = new createjs.Text("Choose your reward", "25px SkyText-Regular", "#000");
-    text.x = 50;
-    text.y = 10;
-    text.alpha = 0;
-    stage.addChild( text );
-    createjs.Tween.get( text ).to( {alpha:1}, 3000 );
+    var text3 = new createjs.Text("Choose your reward", "25px SkyText-Regular", "#000");
+    text3.x = 50;
+    text3.y = 10;
+    text3.alpha = 0;
+    stage.addChild( text3 );
+    createjs.Tween.get( text3 ).to( {alpha:1}, 3000 );
+
+    setTimeout(bouncingStamp, 1000);
 
     //animated gradient sky stamp
-    stamp = new createjs.Bitmap( loader.getResult( "stamp" ));
-    stamp.x = 70;
-    stamp.y = -20;
-    stamp.alpha = 0;
-    createjs.Tween.get( stamp )
+    function bouncingStamp() {
+      stamp = new createjs.Bitmap( loader.getResult( "stamp" ));
+      stamp.x = 70;
+      stamp.y = -20;
+      stamp.alpha = 0;
+      createjs.Tween.get( stamp )
       .to( {alpha:1, y: 50}, 1000, createjs.Ease.bounceOut);
-    stage.addChild( stamp );
+      stage.addChild( stamp );
+    }
+
+    setTimeout(clearBackground, 2000);
+
+    function clearBackground() {
+      createjs.Tween.get( stamp ).to( {alpha:0}, 1000 );
+      createjs.Tween.get( text3 ).to( {alpha:0}, 1000 );
+      console.log(text3);
+
+    }
 
 
 
