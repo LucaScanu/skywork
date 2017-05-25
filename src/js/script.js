@@ -74,8 +74,6 @@ window.onload = function(){
     setTimeout(frame1, 100);
   }
 
-
-
   function frame1() {
     console.log("draw and animate frame one.");
 
@@ -111,7 +109,6 @@ window.onload = function(){
       createjs.Tween.get( text1 ).to( {alpha:0}, 500 );
       createjs.Tween.get( text2 ).to( {alpha:0}, 500 );
     }
-    // }
 
     // after a timeout and the animations have completed, draw frame 2.
     setTimeout(frame2, 5000);
@@ -149,8 +146,6 @@ window.onload = function(){
       createjs.Tween.get( text ).to( {alpha:0}, 500 );
       createjs.Tween.get( stamp ).to( {alpha:0}, 500 );
     }
-
-
 
     // after a timeout and the animations have completed, draw frame 3.
     setTimeout(frame3, 3000);
