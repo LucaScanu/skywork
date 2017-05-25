@@ -71,7 +71,7 @@ window.onload = function(){
     createjs.Tween.get( products ).to( {alpha:1}, 1000 );
 
     // after the background is drawn on the canvas draw and animate the content for frame 1.
-    setTimeout(frame1, 100);
+    setTimeout(frame1, 1000);
   }
 
   function frame1() {
@@ -111,7 +111,7 @@ window.onload = function(){
     }
 
     // after a timeout and the animations have completed, draw frame 2.
-    setTimeout(frame2, 5000);
+    setTimeout(frame2, 5500);
   }
 
   function frame2() {
@@ -143,8 +143,8 @@ window.onload = function(){
 
     function clearBackground() {
 
-      createjs.Tween.get( text ).to( {alpha:0}, 500 );
-      createjs.Tween.get( stamp ).to( {alpha:0}, 500 );
+      createjs.Tween.get( text ).to( {alpha:0}, 1000 );
+      createjs.Tween.get( stamp ).to( {alpha:0}, 1000 );
     }
 
     // after a timeout and the animations have completed, draw frame 3.
@@ -169,7 +169,7 @@ window.onload = function(){
     text.y = 10;
     text.alpha = 0;
     stage.addChild( text );
-    createjs.Tween.get( text ).to( {alpha:1}, 1500 );
+    createjs.Tween.get( text ).to( {alpha:1}, 2000 );
 
     var text1 = new createjs.Text("when you switch to 12 months", "15px SkyText-Regular", "#0000ff");
     text1.x = 58;
